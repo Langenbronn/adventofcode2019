@@ -1,6 +1,9 @@
 package adventofcode.file.read;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class FileReadData {
     protected File fichier;
@@ -45,5 +48,23 @@ public class FileReadData {
         } catch (IOException exception) {
             System.out.println("Erreur lors de la fermeture :" + exception.getMessage());
         }
+    }
+
+    public static List<String> readFileByLine(ArrayList<String> list, String fileName){
+        try{
+            File file = new File(fileName);
+            Scanner reader = new Scanner(file);
+            reader.useDelimiter(",");
+            while(reader.hasNext()){
+                String s = reader.next();
+                s= s.trim();
+                s= s.replaceAll("," , "");
+                list.add(s);
+            }
+            reader.close();
+        }
+        catch(FileNotFoundException e){ System.err.println("Error: " + e.getMessage());}
+
+        return list;
     }
 }
