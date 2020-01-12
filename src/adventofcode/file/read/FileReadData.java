@@ -46,26 +46,4 @@ public class FileReadData {
             System.out.println("Erreur lors de la fermeture :" + exception.getMessage());
         }
     }
-    public void lecture2() {
-        try {
-            fr = new FileReader(fichier);
-            br = new BufferedReader(fr);
-
-            try {
-                String line = br.readLine();
-
-                while (line != null) {
-                    System.out.println(line);
-                    line = br.readLine();
-                }
-
-                br.close();
-                fr.close();
-            } catch (IOException exception) {
-                System.out.println("Erreur lors de la lecture :" + exception.getMessage());
-            }
-        } catch (FileNotFoundException expection) {
-            System.out.println("Le fichier n'a pas ete trouve");
-        }
-    }
 }
