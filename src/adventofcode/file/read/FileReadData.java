@@ -50,10 +50,9 @@ public class FileReadData {
         }
     }
 
-    public static List<String> readFileByLine(ArrayList<String> list, String fileName){
+    public List<String> readFileByLine(ArrayList<String> list){
         try{
-            File file = new File(fileName);
-            Scanner reader = new Scanner(file);
+            Scanner reader = new Scanner(fichier);
             reader.useDelimiter(",");
             while(reader.hasNext()){
                 String s = reader.next();
