@@ -11,8 +11,16 @@ public class Intcode {
         FileReadData fRead = new FileReadData("programAlarm");
         fRead.readFileByLine(list);
         System.out.println("list : "+ list);
+        int sequence = 0;
+        while (sequence == 5) {
+            list.get(sequence*4);
+            sequence++;
+        }
+
         return list;
     }
 
-    public void opcode()
+    public void opcode(){
+
+    }
 }
