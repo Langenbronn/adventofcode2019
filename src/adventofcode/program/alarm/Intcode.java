@@ -26,23 +26,24 @@ public class Intcode {
     }
 
     private int opcodeSequence(int opcode) {
-//        int op0 = listIntcode.get(opcode);
-//        int op1 = listIntcode.get(opcode + 1);
-//        int op2 = listIntcode.get(opcode + 2);
-//        int op3 = listIntcode.get(opcode + 3);
-//        int op11 = listIntcode.get(op1);
-//        int op22 = listIntcode.get(op2);
-//        int op33 = listIntcode.get(op3);
+        int op0 = listIntcode.get(opcode);
+        int op1 = listIntcode.get(opcode + 1);
+        int op2 = listIntcode.get(opcode + 2);
+        int op3 = listIntcode.get(opcode + 3);
+        int op11 = listIntcode.get(op1);
+        int op22 = listIntcode.get(op2);
+        int op33 = listIntcode.get(op3);
         switch (listIntcode.get(opcode)) {
             case 1:
-                listIntcode.set(opcode+3, listofList(opcode+1) + listofList(opcode+2));
+                listIntcode.set(listIntcode.get(opcode+3), listofList(opcode+1) + listofList(opcode+2));
                 break;
             case 2:
-                listIntcode.set(opcode+3, listofList(opcode+1) * listofList(opcode+2));
+                listIntcode.set(listIntcode.get(opcode+3), listofList(opcode+1) * listofList(opcode+2));
                 break;
             case 99:
                 break;
             default:
+                System.out.println("error");
                 break;
         }
         return listIntcode.get(opcode);
