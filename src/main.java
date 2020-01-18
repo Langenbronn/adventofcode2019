@@ -1,9 +1,5 @@
 
-import adventofcode.file.read.FileReadData;
-import adventofcode.module.FuelCalcul;
-import adventofcode.program.alarm.Intcode;
-
-import java.util.ArrayList;
+import adventofcode.program.location.WireLocalisation;
 
 public class main {
     public static void main(String[] args) {
@@ -11,7 +7,11 @@ public class main {
 //        fuelCalcul.fuelRequired("modules");
 //        System.out.println("Total fuel : "+fuelCalcul.getFuelTotal());
 
-        Intcode intcode = new Intcode();
-        intcode.intcodeList("programAlarm");
+//        Intcode intcode = new Intcode();
+//        intcode.intcodeList("programAlarm");
+
+        WireLocalisation wl = new WireLocalisation();
+        wl.convertWireToCoord("wires");
+
     }
 }

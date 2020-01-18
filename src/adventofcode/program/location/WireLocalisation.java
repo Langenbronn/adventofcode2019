@@ -7,46 +7,44 @@ import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 
 public class WireLocalisation {
-    private ArrayList<Dot> listCoordonate = new ArrayList<Dot>();
-    private ConvertTool convertTool;
+    private ArrayList<Dot> listCoordonate = new ArrayList();
+    private int x = 0;
+    private int y = 0;
 
-    public WireLocalisation(ArrayList<Dot> listCoordonate) {
-        this.listCoordonate = listCoordonate;
-    }
-
-    public ArrayList<Dot> getListCoordonate() {
-        return listCoordonate;
-    }
-
-    public void setListCoordonate(ArrayList<Dot> listCoordonate) {
-        this.listCoordonate = listCoordonate;
-    }
-
-    public void convertWireTo (String source)  {
-        FileReadData fRead = new FileReadData("programAlarm");
+    public void convertWireToCoord(String source)  {
+        FileReadData fRead = new FileReadData(source);
         ArrayList<String> list = new ArrayList<String>();
         fRead.readFileByLine(list);
+        System.out.println("list " + list);
+        listCoordonate.add(new Dot (x,y));
+        for(String wire : list) {
+            System.out.println("wire " + wire);
+            readCoord(wire);
+        }
+        System.out.println("listCoordonate " + listCoordonate);
     }
 
     public void readCoord (String wire){
         switch (wire.charAt(0)) {
             case 'U':
-                listCoordonate.add(new Dot (1,1));
+                y = y + Integer.parseInt(wire.substring(1));
+                listCoordonate.add(new Dot (x,y));
                 break;
             case 'D':
-                listCoordonate.add(new Dot (1,1));
+                y = y - Integer.parseInt(wire.substring(1));
+                listCoordonate.add(new Dot (x,y));
                 break;
             case 'R':
-                listCoordonate.add(new Dot (1,1));
+                x = x + Integer.parseInt(wire.substring(1));
+                listCoordonate.add(new Dot (x,y));
                 break;
             case 'L':
-                listCoordonate.add(new Dot (1,1));
+                x = x - Integer.parseInt(wire.substring(1));
+                listCoordonate.add(new Dot (x,y));
                 break;
             default:
                 System.out.println("error");
                 break;
-
-
         }
     }
 }

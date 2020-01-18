@@ -6,11 +6,11 @@ import adventofcode.tool.ConvertTool;
 import java.util.ArrayList;
 
 public class Intcode {
-    private ArrayList<Integer> listIntcode = new ArrayList<Integer>();
+    private ArrayList<Integer> listIntcode = new ArrayList();
     private ConvertTool convertTool;
 
     public ArrayList<String> intcodeList(String source) {
-        FileReadData fRead = new FileReadData("programAlarm");
+        FileReadData fRead = new FileReadData(source);
         ArrayList<String> list = new ArrayList<String>();
         fRead.readFileByLine(list);
         listIntcode = convertTool.getIntegerArray(list);
