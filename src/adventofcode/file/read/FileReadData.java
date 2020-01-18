@@ -29,7 +29,8 @@ public class FileReadData {
         return getLine();
     }
 
-    public String intFile() {
+    public String
+    intFile() {
         try {
             fr = new FileReader(fichier);
             br = new BufferedReader(fr);
@@ -50,7 +51,7 @@ public class FileReadData {
         }
     }
 
-    public List<String> readFileByLine(ArrayList<String> list){
+    public List<String> readFileList(ArrayList<String> list){
         try{
             Scanner reader = new Scanner(fichier);
             reader.useDelimiter(",");
@@ -65,5 +66,23 @@ public class FileReadData {
         catch(FileNotFoundException e){ System.err.println("Error: " + e.getMessage());}
 
         return list;
+    }
+
+    public void readFileListByLine () {
+        try {
+        BufferedReader br = new BufferedReader(new FileReader("wires"));
+            String line = null;
+            line = br.readLine();
+//            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                for (String str : values) {
+                    System.out.println(str);
+                }
+//            }
+            br.close();
+        } catch (IOException exception) {
+            System.out.println("Erreur lors de la lecture :" + exception.getMessage());
+        }
+
     }
 }

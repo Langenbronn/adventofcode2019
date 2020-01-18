@@ -1,9 +1,7 @@
 package adventofcode.program.location;
 
 import adventofcode.file.read.FileReadData;
-import adventofcode.tool.ConvertTool;
 
-import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 
 public class WireLocalisation {
@@ -14,14 +12,16 @@ public class WireLocalisation {
     public void convertWireToCoord(String source)  {
         FileReadData fRead = new FileReadData(source);
         ArrayList<String> list = new ArrayList<String>();
-        fRead.readFileByLine(list);
-        System.out.println("list " + list);
-        listCoordonate.add(new Dot (x,y));
-        for(String wire : list) {
-            System.out.println("wire " + wire);
-            readCoord(wire);
-        }
-        System.out.println("listCoordonate " + listCoordonate);
+        fRead.readFileList(list);
+        String mass = fRead.intFile();
+        System.out.println("mass " + mass);
+//        System.out.println("list " + list);
+//        listCoordonate.add(new Dot (x,y));
+//        for(String wire : list) {
+//            System.out.println("wire " + wire);
+//            readCoord(wire);
+//        }
+//        System.out.println("listCoordonate " + listCoordonate);
     }
 
     public void readCoord (String wire){

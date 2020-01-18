@@ -12,7 +12,7 @@ public class Intcode {
     public ArrayList<String> intcodeList(String source) {
         FileReadData fRead = new FileReadData(source);
         ArrayList<String> list = new ArrayList<String>();
-        fRead.readFileByLine(list);
+        fRead.readFileList(list);
         listIntcode = convertTool.getIntegerArray(list);
         int sequence = 0;
         int opcode = 0;

@@ -1,4 +1,5 @@
 
+import adventofcode.file.read.FileReadData;
 import adventofcode.program.location.WireLocalisation;
 
 public class main {
@@ -10,8 +11,11 @@ public class main {
 //        Intcode intcode = new Intcode();
 //        intcode.intcodeList("programAlarm");
 
-        WireLocalisation wl = new WireLocalisation();
-        wl.convertWireToCoord("wires");
+//        WireLocalisation wl = new WireLocalisation();
+//        wl.convertWireToCoord("wires");
+
+        FileReadData frd = new FileReadData("wires");
+        frd.readFileListByLine();
 
     }
 }
