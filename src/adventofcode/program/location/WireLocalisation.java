@@ -17,7 +17,7 @@ public class WireLocalisation {
     public ArrayList<Dot> getListCoordonate() {
         return listCoordonate;
     }
-co
+
     public void setListCoordonate(ArrayList<Dot> listCoordonate) {
         this.listCoordonate = listCoordonate;
     }
