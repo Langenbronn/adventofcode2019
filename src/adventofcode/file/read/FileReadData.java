@@ -2,6 +2,7 @@ package adventofcode.file.read;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,7 +22,6 @@ public class FileReadData {
 
     public String lecture() {
         try {
-            // System.out.println(line);
             line = br.readLine();
         } catch (IOException exception) {
             System.out.println("Erreur lors de la lecture :" + exception.getMessage());
@@ -51,34 +51,34 @@ public class FileReadData {
         }
     }
 
-    public List<String> readFileList(ArrayList<String> list){
-        try{
+    public List<String> readFileList(ArrayList<String> list) {
+        try {
             Scanner reader = new Scanner(fichier);
             reader.useDelimiter(",");
-            while(reader.hasNext()){
+            while (reader.hasNext()) {
                 String s = reader.next();
-                s= s.trim();
-                s= s.replaceAll("," , "");
+                s = s.trim();
+                s = s.replaceAll(",", "");
                 list.add(s);
             }
             reader.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("Error: " + e.getMessage());
         }
-        catch(FileNotFoundException e){ System.err.println("Error: " + e.getMessage());}
 
         return list;
     }
 
-    public void readFileListByLine () {
+    public void readFileListByLine() {
+        ArrayList<ArrayList<String>> list = new ArrayList();
         try {
-        BufferedReader br = new BufferedReader(new FileReader("wires"));
-            String line = null;
-            line = br.readLine();
-//            while ((line = br.readLine()) != null) {
+            BufferedReader br = new BufferedReader(new FileReader("wires"));
+            String line;
+            while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                for (String str : values) {
-                    System.out.println(str);
-                }
-//            }
+                list.add(new ArrayList(Arrays.asList(values)));
+            }
+            System.out.println("list:" + list);
             br.close();
         } catch (IOException exception) {
             System.out.println("Erreur lors de la lecture :" + exception.getMessage());
