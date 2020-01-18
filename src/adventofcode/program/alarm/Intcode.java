@@ -1,17 +1,19 @@
 package adventofcode.program.alarm;
 
 import adventofcode.file.read.FileReadData;
+import adventofcode.tool.ConvertTool;
 
 import java.util.ArrayList;
 
 public class Intcode {
     private ArrayList<Integer> listIntcode = new ArrayList<Integer>();
+    private ConvertTool convertTool;
 
     public ArrayList<String> intcodeList(String source) {
         FileReadData fRead = new FileReadData("programAlarm");
         ArrayList<String> list = new ArrayList<String>();
         fRead.readFileByLine(list);
-        listIntcode = getIntegerArray(list);
+        listIntcode = convertTool.getIntegerArray(list);
         int sequence = 0;
         int opcode = 0;
         while (opcode != 99) {
@@ -21,7 +23,6 @@ public class Intcode {
             System.out.println("opcode " + opcode);
             sequence++;
         }
-
         return list;
     }
 
@@ -53,16 +54,4 @@ public class Intcode {
         return listIntcode.get(listIntcode.get(n));
     }
 
-
-    private ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        for(String stringValue : stringArray) {
-            try {
-                result.add(Integer.parseInt(stringValue));
-            } catch(NumberFormatException nfe) {
-                System.out.println("Could not parse " + nfe);
-            }
-        }
-        return result;
-    }
 }
