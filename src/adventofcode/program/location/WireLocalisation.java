@@ -40,12 +40,13 @@ public class WireLocalisation {
             int y2 = firstWire.get(i + 1).getY();
             ArrayList<Dot> secondWire = listCoordonate.get(1);
             for (int j = 0; j < secondWire.size() - 1; j++) {
-                if ((secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2 ||
-                        secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2) &&
-                        (secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2 ||
-                                secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2)) {
 
-                }
+//                if ((secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2 ||
+//                        secondWire.get(j).getX() >= x1 && secondWire.get(j).getX() <= x2) &&
+//                        (secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2 ||
+//                                secondWire.get(j).getY() >= y1 && secondWire.get(j).getY() <= y2)) {
+//                    System.out.println("plop " );
+//                }
             }
         }
         return crossList;
