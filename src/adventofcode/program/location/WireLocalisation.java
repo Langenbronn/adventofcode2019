@@ -5,7 +5,7 @@ import adventofcode.file.read.FileReadData;
 import java.util.ArrayList;
 
 public class WireLocalisation {
-    private ArrayList<ArrayList<Dot>> listCoordonate = new ArrayList();
+    private ArrayList<Wire> listCoordonate = new ArrayList();
     private int x = 0;
     private int y = 0;
 
@@ -19,7 +19,7 @@ public class WireLocalisation {
         for (ArrayList<String> lC : list) {
             x = 0;
             y = 0;
-            listCoordonate.add(new ArrayList());
+            listCoordonate.add(new Wire(new ArrayList<Dot>()));
             listOfListDot(num, x, y);
             for (String wire : lC) {
                 readCoord(num, wire);
@@ -30,9 +30,9 @@ public class WireLocalisation {
         System.out.println("listCoordonate " + listCoordonate);
     }
 
-    public ArrayList<Dot> searchCross() {
-        ArrayList<Dot> crossList = new ArrayList<>();
-        ArrayList<Dot> firstWire = listCoordonate.get(0);
+    public Wire searchCross() {
+        Wire crossList = new Wire(new ArrayList<Dot>());
+        Wire firstWire = listCoordonate.get(0);
         for (int i = 0; i < firstWire.size() - 1; i++) {
             int x1 = firstWire.get(i).getX();
             int y1 = firstWire.get(i).getY();
@@ -40,17 +40,24 @@ public class WireLocalisation {
             int y2 = firstWire.get(i + 1).getY();
             ArrayList<Dot> secondWire = listCoordonate.get(1);
             for (int j = 0; j < secondWire.size() - 1; j++) {
-
-//                if ((secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2 ||
-//                        secondWire.get(j).getX() >= x1 && secondWire.get(j).getX() <= x2) &&
-//                        (secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2 ||
-//                                secondWire.get(j).getY() >= y1 && secondWire.get(j).getY() <= y2)) {
-//                    System.out.println("plop " );
+//                if ( x1 == x2) {
+//                    if ()
 //                }
+
+
+//                switch (){
+//                    case x1 == x2:
+//                        break;
+//                    case y1 == y2:
+//                        break;
+//                    default:
+//                        break;
             }
+
         }
         return crossList;
     }
+
 
     public void readCoord(int num, String wire) {
         switch (wire.charAt(0)) {
