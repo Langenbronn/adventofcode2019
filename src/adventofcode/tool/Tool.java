@@ -2,7 +2,7 @@ package adventofcode.tool;
 
 import java.util.ArrayList;
 
-public class ConvertTool {
+public class Tool {
     public ArrayList<Integer> getIntegerArray(ArrayList<String> stringArray) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         for(String stringValue : stringArray) {

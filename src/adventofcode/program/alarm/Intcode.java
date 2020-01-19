@@ -1,19 +1,19 @@
 package adventofcode.program.alarm;
 
 import adventofcode.file.read.FileReadData;
-import adventofcode.tool.ConvertTool;
+import adventofcode.tool.Tool;
 
 import java.util.ArrayList;
 
 public class Intcode {
     private ArrayList<Integer> listIntcode = new ArrayList();
-    private ConvertTool convertTool = new ConvertTool();
+    private Tool tool = new Tool();
 
     public ArrayList<Integer> intcodeList(String source) {
         FileReadData fRead = new FileReadData(source);
         ArrayList<String> list = new ArrayList();
         fRead.readFileList(list);
-        listIntcode = convertTool.getIntegerArray(list);
+        listIntcode = tool.getIntegerArray(list);
         int sequence = 0;
         int opcode = 0;
         while (opcode != 99) {

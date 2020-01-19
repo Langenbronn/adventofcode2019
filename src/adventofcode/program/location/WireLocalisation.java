@@ -40,21 +40,18 @@ public class WireLocalisation {
             int y2 = firstWire.get(i + 1).getY();
             ArrayList<Dot> secondWire = listCoordonate.get(1);
             for (int j = 0; j < secondWire.size() - 1; j++) {
-//                if ( x1 == x2) {
-//                    if ()
-//                }
-
-
-//                switch (){
-//                    case x1 == x2:
-//                        break;
-//                    case y1 == y2:
-//                        break;
-//                    default:
-//                        break;
+                if (x1 == x2 && secondWire.get(j).getY() == secondWire.get(j + 1).getY()) {
+                    if (secondWire.get(j).getY() <= Math.max(y1, y2) && secondWire.get(j).getY() >= Math.min(y1, y2)) {
+                        crossList.add(new Dot(x1, secondWire.get(j).getY()));
+                    }
+                } else if (y1 == y2 && secondWire.get(j).getX() == secondWire.get(j + 1).getX()) {
+                    if (secondWire.get(j).getX() <= Math.max(x1, x2) && secondWire.get(j).getX() >= Math.min(x1, x2)) {
+                        crossList.add(new Dot(secondWire.get(j).getX(), y1));
+                    }
+                }
             }
-
         }
+        System.out.println("crossList " + crossList);
         return crossList;
     }
 
