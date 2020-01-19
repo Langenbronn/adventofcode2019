@@ -26,7 +26,29 @@ public class WireLocalisation {
             }
             num++;
         }
+        searchCross();
         System.out.println("listCoordonate " + listCoordonate);
+    }
+
+    public ArrayList<Dot> searchCross() {
+        ArrayList<Dot> crossList = new ArrayList<>();
+        ArrayList<Dot> firstWire = listCoordonate.get(0);
+        for (int i = 0; i < firstWire.size() - 1; i++) {
+            int x1 = firstWire.get(i).getX();
+            int y1 = firstWire.get(i).getY();
+            int x2 = firstWire.get(i + 1).getX();
+            int y2 = firstWire.get(i + 1).getY();
+            ArrayList<Dot> secondWire = listCoordonate.get(1);
+            for (int j = 0; j < secondWire.size() - 1; j++) {
+                if ((secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2 ||
+                        secondWire.get(j).getX() <= x1 && secondWire.get(j).getX() >= x2) &&
+                        (secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2 ||
+                                secondWire.get(j).getY() <= y1 && secondWire.get(j).getY() >= y2)) {
+
+                }
+            }
+        }
+        return crossList;
     }
 
     public void readCoord(int num, String wire) {
