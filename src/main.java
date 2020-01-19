@@ -11,11 +11,11 @@ public class main {
 //        Intcode intcode = new Intcode();
 //        intcode.intcodeList("programAlarm");
 
-//        WireLocalisation wl = new WireLocalisation();
-//        wl.convertWireToCoord("wires");
+        WireLocalisation wl = new WireLocalisation();
+        wl.convertWireToCoord("wires");
 
-        FileReadData frd = new FileReadData("wires");
-        frd.readFileListByLine();
+//        FileReadData frd = new FileReadData("wires");
+//        frd.readFileListByLine();
 
     }
 }

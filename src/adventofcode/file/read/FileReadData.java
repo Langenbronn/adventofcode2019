@@ -69,8 +69,7 @@ public class FileReadData {
         return list;
     }
 
-    public void readFileListByLine() {
-        ArrayList<ArrayList<String>> list = new ArrayList();
+    public ArrayList<ArrayList<String>> readFileListByLine(ArrayList<ArrayList<String>> list) {
         try {
             BufferedReader br = new BufferedReader(new FileReader("wires"));
             String line;
@@ -78,11 +77,10 @@ public class FileReadData {
                 String[] values = line.split(",");
                 list.add(new ArrayList(Arrays.asList(values)));
             }
-            System.out.println("list:" + list);
             br.close();
         } catch (IOException exception) {
             System.out.println("Erreur lors de la lecture :" + exception.getMessage());
         }
-
+        return list;
     }
 }
