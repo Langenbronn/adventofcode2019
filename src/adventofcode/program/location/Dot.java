@@ -9,6 +9,21 @@ public class Dot {
         this.y = y;
     }
 
+    public int distance() {
+        int dDot = 0;
+        if (x > 0) {
+            dDot = x;
+        } else {
+            dDot = -x;
+        }
+        if (y > 0) {
+            dDot = dDot + y;
+        } else {
+            dDot = dDot - y;
+        }
+        return dDot;
+    }
+
     public int getX() {
         return x;
     }

@@ -26,11 +26,35 @@ public class WireLocalisation {
             }
             num++;
         }
-        searchCross();
-        System.out.println("listCoordonate " + listCoordonate);
+        lowerWire(searchCross());
+
     }
 
-    public Wire searchCross() {
+    private void readCoord(int num, String wire) {
+        switch (wire.charAt(0)) {
+            case 'U':
+                y = y + Integer.parseInt(wire.substring(1));
+                listOfListDot(num, x, y);
+                break;
+            case 'D':
+                y = y - Integer.parseInt(wire.substring(1));
+                listOfListDot(num, x, y);
+                break;
+            case 'R':
+                x = x + Integer.parseInt(wire.substring(1));
+                listOfListDot(num, x, y);
+                break;
+            case 'L':
+                x = x - Integer.parseInt(wire.substring(1));
+                listOfListDot(num, x, y);
+                break;
+            default:
+                System.out.println("error");
+                break;
+        }
+    }
+
+    private Wire searchCross() {
         Wire crossList = new Wire(new ArrayList<Dot>());
         Wire firstWire = listCoordonate.get(0);
         for (int i = 0; i < firstWire.size() - 1; i++) {
@@ -63,29 +87,14 @@ public class WireLocalisation {
         return crossList;
     }
 
-
-    public void readCoord(int num, String wire) {
-        switch (wire.charAt(0)) {
-            case 'U':
-                y = y + Integer.parseInt(wire.substring(1));
-                listOfListDot(num, x, y);
-                break;
-            case 'D':
-                y = y - Integer.parseInt(wire.substring(1));
-                listOfListDot(num, x, y);
-                break;
-            case 'R':
-                x = x + Integer.parseInt(wire.substring(1));
-                listOfListDot(num, x, y);
-                break;
-            case 'L':
-                x = x - Integer.parseInt(wire.substring(1));
-                listOfListDot(num, x, y);
-                break;
-            default:
-                System.out.println("error");
-                break;
+    private void lowerWire(Wire listCross) {
+        int max = 0;
+        for (Dot dot : listCross) {
+            if (max == 0 || dot.distance() < max) {
+                max = dot.distance();
+            }
         }
+        System.out.println("max:" + max);
     }
 
     private void listOfListDot(int num, int x, int y) {
