@@ -41,18 +41,18 @@ public class WireLocalisation {
             ArrayList<Dot> secondWire = listCoordonate.get(1);
             for (int j = 0; j < secondWire.size() - 1; j++) {
                 if (x1 == x2 && secondWire.get(j).getY() == secondWire.get(j + 1).getY()) {
-                    if (secondWire.get(j).getX() < Math.max(x1, x2) &&
-                            secondWire.get(j).getX() > Math.min(x1, x2) &&
+                    if (x1 < Math.max(secondWire.get(j).getX(),  secondWire.get(j+1).getX()) &&
+                            x1 > Math.min(secondWire.get(j).getX(),  secondWire.get(j+1).getX()) &&
                             secondWire.get(j).getY() < Math.max(y1, y2) &&
                             secondWire.get(j).getY() > Math.min(y1, y2)
                     ) {
                         crossList.add(new Dot(x1, secondWire.get(j).getY()));
                     }
                 } else if (y1 == y2 && secondWire.get(j).getX() == secondWire.get(j + 1).getX()) {
-                    if (secondWire.get(j).getX() < Math.max(x1, x2) &&
-                            secondWire.get(j).getX() > Math.min(x1, x2) &&
-                            secondWire.get(j).getY() < Math.max(y1, y2) &&
-                            secondWire.get(j).getY() > Math.min(y1, y2)
+                    if (y1 < Math.max(secondWire.get(j).getY(),  secondWire.get(j+1).getY()) &&
+                            y1 > Math.min(secondWire.get(j).getY(),  secondWire.get(j+1).getY()) &&
+                            secondWire.get(j).getX() < Math.max(x1, x2) &&
+                            secondWire.get(j).getX() > Math.min(x1, x2)
                     ) {
                         crossList.add(new Dot(secondWire.get(j).getX(), y1));
                     }
