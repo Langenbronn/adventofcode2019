@@ -58,9 +58,9 @@ public class WireLocalisation {
                     }
                 }
             }
-            System.out.println("crossList " + crossList);
-            return crossList;
         }
+        System.out.println("crossList " + crossList);
+        return crossList;
     }
 
 
