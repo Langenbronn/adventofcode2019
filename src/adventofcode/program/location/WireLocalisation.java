@@ -42,7 +42,7 @@ public class WireLocalisation {
             for (int j = 0; j < secondWire.size() - 1; j++) {
                 if (x1 == x2 && secondWire.get(j).getY() == secondWire.get(j + 1).getY()) {
                     if (secondWire.get(j).getY() < Math.max(y1, y2) &&
-                            csecondWire.get(j).getY() > Math.min(y1, y2)) {
+                            secondWire.get(j).getY() > Math.min(y1, y2)) {
                         crossList.add(new Dot(x1, secondWire.get(j).getY()));
                     }
                 } else if (y1 == y2 && secondWire.get(j).getX() == secondWire.get(j + 1).getX()) {
