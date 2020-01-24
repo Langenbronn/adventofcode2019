@@ -9,4 +9,8 @@ public class Password {
 
        return possibility;
     }
+
+    public void searchPossibility(ArrayList<Integer> puzzle) {
+
+    }
 }
