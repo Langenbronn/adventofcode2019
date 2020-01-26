@@ -16,13 +16,16 @@ public class Password {
         i--;
         for (Integer n : puzzle) {
             ArrayList<Integer> result1 = new ArrayList<Integer>(result);
+            if (puzzlebis.size() < i+1) {
+                break;
+            }
+            if (i + 1 <= 0) {
+                System.out.println("result: " + result1 );
+                break;
+            }
 //           System.out.println(puzzlebis + " + " + i);
             puzzlebis.remove(0);
 //           System.out.println(puzzlebis + " + " + i);
-            if (puzzlebis.size() < i + 1 || i + 1 <= 0) {
-                System.out.println("result: " + result1);
-                break;
-            }
             result1.add(n);
 //           System.out.println("result: " + result1);
             searchPossibility(new ArrayList<Integer>(puzzlebis), i, result1);
