@@ -30,7 +30,7 @@ public class main {
         puzzle.add(9);
         puzzle.add(8);
         Password password = new Password();
-        password.searchPossibility(puzzle, 6);
+        password.searchPossibility(puzzle, 6, new ArrayList<Integer>());
 
 //        FileReadData frd = new FileReadData("wires");
 //        frd.readFileListByLine();
