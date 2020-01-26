@@ -21,6 +21,7 @@ public class main {
         puzzle.add(1);
         puzzle.add(6);
         puzzle.add(8);
+        puzzle.add(6);
         puzzle.add(3);
         puzzle.add(0);
         puzzle.add(7);

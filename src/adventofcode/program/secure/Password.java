@@ -12,6 +12,7 @@ public class Password {
     }
 
     public void searchPossibility(ArrayList<Integer> puzzle, int i, ArrayList<Integer> result) {
+//        168630-718098
         ArrayList<Integer> puzzlebis = new ArrayList<Integer>(puzzle);
         i--;
         for (Integer n : puzzle) {
@@ -19,7 +20,7 @@ public class Password {
             if (puzzlebis.size() < i+1) {
                 break;
             }
-            if (i + 1 <= 0) {
+            if (i+1 <= 0) {
                 System.out.println("result: " + result1 );
                 break;
             }
